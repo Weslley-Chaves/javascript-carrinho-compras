@@ -28,6 +28,9 @@ function adicionar() {
     // Atualizar o valor total da compra
     const totalCompra = document.getElementsByClassName('carrinho__total')[0];
     totalCompra.innerHTML = `Total: <span class="texto-azul" id="valor-total">R$ ${total.toFixed(2)}</span>`;
+
+    // Limpar quantidade ao adicionar um item no carrinho
+    document.getElementById('quantidade').value = '';
 }
 
 function limpar() {
@@ -35,10 +38,12 @@ function limpar() {
     const lista = document.getElementById('lista-produtos');
     lista.innerHTML = '';
 
+    // limpa o campo quantidade
+    document.getElementById('quantidade').value = '';
+
     // Zera o total
     total = 0;
     const totalCompra = document.querySelector('.carrinho__total');
     totalCompra.innerHTML = `Total: <span class="texto-azul" id="valor-total">R$ 0.00</span>`;
-
     console.log('[debug] Carrinho limpo com sucesso!');
 }
